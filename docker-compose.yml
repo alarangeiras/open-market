@@ -1,0 +1,13 @@
+version: "3.8"
+services: 
+  mysql:
+    image: mysql:8.0.26
+    ports: 
+      - 3306:3306
+    volumes: 
+      - ./assets/sql/database_ddl.sql:/docker-entrypoint-initdb.d/openmarket.sql
+    environment: 
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=openmarket
+      - MYSQL_USER=openmarketuser
+      - MYSQL_PASSWORD=openmarketpassword
