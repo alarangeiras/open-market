@@ -1,1 +1,1 @@
-import './contexts/market/main/entrypoints/express'
+import './contexts/market/main/entrypoints/express';

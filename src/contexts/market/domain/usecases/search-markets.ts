@@ -1,7 +1,7 @@
-import { Market } from '../model/market'
+import { Market } from '../model/market';
 
-export type SearchMarketsRequest = Partial<Omit<Market, 'id'>>
+export type SearchMarketsRequest = Partial<Omit<Market, 'id'>>;
 
 export interface SearchMarkets {
-  searchMarkets(market: SearchMarketsRequest): Promise<void>
+  searchMarkets(market: SearchMarketsRequest): Promise<void>;
 }

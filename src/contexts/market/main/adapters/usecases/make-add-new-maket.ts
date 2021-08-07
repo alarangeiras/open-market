@@ -1,7 +1,7 @@
-import { MarketService } from "../../../data/services/market-service";
-import { AddNewMarket } from "../../../domain/usecases";
-import { makeMarketMySQLRepository } from "../repositories/make-market-mysql-repository";
+import { MarketService } from '../../../data/services/market-service';
+import { AddNewMarket } from '../../../domain/usecases';
+import { makeMarketMySQLRepository } from '../repositories/make-market-mysql-repository';
 
 export const makeAddNewMarket = (): AddNewMarket => {
-  return new MarketService(makeMarketMySQLRepository())
-}
+  return new MarketService(makeMarketMySQLRepository());
+};

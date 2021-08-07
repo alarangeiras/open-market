@@ -1,4 +1,4 @@
-import { createPool, Pool } from "mysql2/promise"
+import { createPool, Pool } from 'mysql2/promise';
 
 const pool = createPool({
   host: process.env.MYSQL_HOST,
@@ -8,8 +8,8 @@ const pool = createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-})
+});
 
 export const getConnectionPool = (): Pool => {
-  return pool
-}
+  return pool;
+};

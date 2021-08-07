@@ -8,21 +8,21 @@ export namespace Http {
   }
 
   export type Headers = {
-    [key: string]: string
-  }
+    [key: string]: string;
+  };
 
   export type Request<T = any> = {
-    headers?: Headers
-    body?: T
-  }
+    headers?: Headers;
+    body?: T;
+  };
 
   export type Response<T = any> = {
-    status: StatusCode
-    headers?: Headers
-    body?: T
-  }
-  
+    status: StatusCode;
+    headers?: Headers;
+    body?: T;
+  };
+
   export interface Controller {
-    handle(request: Request): Promise<Response>
+    handle(request: Request): Promise<Response>;
   }
 }

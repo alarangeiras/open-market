@@ -12,7 +12,5 @@
     "plugins": [
       { "transform": "ts-auto-mock/transformer", "cacheBetweenTests": false }
     ]    
-  },
-  "include": ["src/"],
-  "exclude": ["node_modules/"]
+  }
 }
