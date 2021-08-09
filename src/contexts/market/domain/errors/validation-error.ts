@@ -8,5 +8,4 @@ export class ValidationError extends AppError {
     super(Http.StatusCode.BadRequest, 'Error when validate message');
     this.errors = _validationErrors;
   }
-
 }

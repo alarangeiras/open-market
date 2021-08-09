@@ -9,7 +9,9 @@ describe(__filename, () => {
     const addNewMarketSpy = jest.fn().mockReturnValue(Promise.resolve());
     marketRepositoryMock.add = addNewMarketSpy;
 
-    const useCase: AddNewMarket.UseCase = new MarketService(marketRepositoryMock);
+    const useCase: AddNewMarket.UseCase = new MarketService(
+      marketRepositoryMock
+    );
 
     const marketMock: AddNewMarket.Request = {
       name: 'marketMockName',
@@ -22,8 +24,7 @@ describe(__filename, () => {
       await useCase.addNewMarket(marketMock);
       expect(addNewMarketSpy).toBeCalled();
     } catch (error) {
-      fail()
+      fail();
     }
-
   });
 });
