@@ -40,6 +40,6 @@ describe(__filename, () => {
       },
     };
     const responsePromise = controller.handle(request);
-    expect(responsePromise).rejects.toThrow(AppError);
+    expect(responsePromise).rejects.toThrow(Error);
   });
 });

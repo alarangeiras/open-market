@@ -1,5 +1,5 @@
-import { Id } from '../types/id';
-
-export interface RemoveMarket {
-  removeMarket(id: Id): Promise<void>;
+export namespace RemoveMarket {
+  export interface UseCase {
+    removeMarket(id: number): Promise<void>;
+  }
 }

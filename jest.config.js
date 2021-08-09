@@ -24,5 +24,6 @@ module.exports = {
     '!<rootDir>/src/**/*.test.ts',
     '!<rootDir>/src/**/main/**/*',
     '!<rootDir>/src/**/index.ts',
-  ]
+    '!<rootDir>/src/import-data.ts',
+  ],
 };

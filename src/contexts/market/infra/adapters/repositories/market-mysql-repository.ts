@@ -5,6 +5,10 @@ import { AddNewMarket, UpdateMarket } from '../../../domain/usecases';
 export class MarketMySQLRepository implements MarketRepository {
   constructor(private _connection: Pool) {}
 
+  async remove(id: number): Promise<void> {
+    await this._connection.execute('DELETE FROM market where id = ?', [id]);
+  }
+
   async update(market: UpdateMarket.Request, id: number): Promise<void> {
     await this._connection.execute(
       'UPDATE market set name = ?, neighbor = ?, district = ?, region = ? where id = ?',
