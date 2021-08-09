@@ -16,7 +16,7 @@ export namespace Http {
   };
 
   export type Request<T = any> = {
-    params?: Param
+    params?: Param;
     headers?: Headers;
     body?: T;
   };
@@ -32,8 +32,8 @@ export namespace Http {
   }
 
   export type ErrorPayload = {
-    status: StatusCode,
-    message: string,
-    errors?: string[]
-  }
+    status: StatusCode;
+    message: string;
+    errors?: string[];
+  };
 }
