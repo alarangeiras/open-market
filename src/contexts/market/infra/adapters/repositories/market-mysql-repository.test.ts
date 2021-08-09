@@ -35,7 +35,7 @@ describe(__filename, () => {
     }
   });
 
-  test('add new market', async () => {
+  test('delete a market', async () => {
     marketRepository = new MarketMySQLRepository(pool);
     const id = 1;
     try {
