@@ -27,12 +27,12 @@
 * O projeto possui o **husky** configurado. Isso significa que o husky instalou um git hook na no seu ambiente local (quando executou o npm install) que vai rodar o linter, o formatter e os testes unitários antes de fazer o push pro repositório. Caso um desses steps retorne erro o push será cancelado.
 
 
-# Formatter e Linter
+## Formatter e Linter
 
 * Execute o comando `npm run fmt` para formatar o código segundo os critérios do projeto.
 * Execute o comando `npm run lint` para verificar se o projeto está em compliance com os critérios de aceitação do linter.
 
-# Documentação da API
+## Documentação da API
 
 A API está documentada em formato Swagger. Para expor a documentação local basta executar o ambiente de desenvolvimento (`npm run dev`) e acessar a url **http://localhost:3000/api-docs**. 
 A recomendação é que use o Swagger apenas como documentação mas utilize alguma ferramenta externa como CURL ou Postman como client.
