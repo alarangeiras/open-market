@@ -12,7 +12,7 @@ export class AddNewMarketController implements Http.Controller {
   async handle(
     request: Http.Request<AddNewMarket.Request>
   ): Promise<Http.Response<void>> {
-    await this._validator.validate(AddNewMarket.Schema, request);
+    await this._validator.validate(AddNewMarket.Schema, request.body);
     await this._useCase.addNewMarket(request.body as AddNewMarket.Request);
     return created();
   }

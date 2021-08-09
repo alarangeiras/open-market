@@ -10,23 +10,26 @@ export const makeExpressHandlerAdapter = (
   return async (request: Request, response: Response) => {
     try {
       logger.info('calling the controller');
+      const params: Http.Param = {};
+      for (const requestParam in request.params) {
+        params[requestParam] = request.params[requestParam]
+      }
       const controllerResponse = await controller.handle({
+        params,
         body: request.body,
       });
       response.status(controllerResponse.status).json(controllerResponse.body);
     } catch (error) {
       logger.error(error);
 
-      response.json({
-        message: error.message,
-      });
-
       if (error.name === AppError.name) {
-        const appError = error as AppError;
-        return response.status(appError.status);
+        const {name, ...appError} = error as AppError;
+        return response.status(appError.status).json(appError);
       }
 
-      response.status(Http.StatusCode.InternalServerError);
+      return response.status(Http.StatusCode.InternalServerError).json({
+        message: error.message,
+      });;
     }
   };
 };

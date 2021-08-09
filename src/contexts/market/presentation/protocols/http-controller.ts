@@ -11,7 +11,12 @@ export namespace Http {
     [key: string]: string;
   };
 
+  export type Param = {
+    [key: string]: string;
+  };
+
   export type Request<T = any> = {
+    params?: Param
     headers?: Headers;
     body?: T;
   };
@@ -24,5 +29,11 @@ export namespace Http {
 
   export interface Controller {
     handle(request: Request): Promise<Response>;
+  }
+
+  export type ErrorPayload = {
+    status: StatusCode,
+    message: string,
+    errors?: string[]
   }
 }
