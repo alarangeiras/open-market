@@ -8,9 +8,9 @@
     "build": "tsc",
     "test": "jest",
     "fmt": "prettier --write ./src/",
-    "dev": "nodemon --watch ./src/ --exec ts-node -r dotenv/config ./src/index.ts | pino-pretty",
+    "dev": "ts-node-dev -r dotenv/config ./src/index.ts | pino-pretty",
     "import": "ts-node -r dotenv/config ./src/import-data.ts",
-    "start": "node ./dist/src/index.js | pino-tee trace ./all-logs.log"
+    "start": "node ./dist/src/index.js | pino-tee trace ./open-market.log"
   },
   "keywords": [],
   "author": "Allan Larangeiras",
@@ -29,20 +29,19 @@
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.6",
     "jest-ts-auto-mock": "^2.0.0",
-    "nodemon": "^2.0.12",
     "pino-pretty": "^5.1.2",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "ts-auto-mock": "^3.3.5",
     "ts-jest": "^27.0.4",
     "ts-node": "^10.1.0",
+    "ts-node-dev": "^1.1.8",
     "ttypescript": "^1.5.12",
     "typescript": "^4.3.5"
   },
   "dependencies": {
     "ajv": "^8.6.2",
     "cors": "^2.8.5",
-    "csv": "^5.5.0",
     "csv-parse": "^4.16.0",
     "express": "^4.17.1",
     "express-pino-logger": "^6.0.0",

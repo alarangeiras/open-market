@@ -32,7 +32,7 @@ const csvParse = (fileContent: string) => {
         district,
         region,
         name,
-        neighbor
+        neighbor,
       });
     }
     process.exit(0);
