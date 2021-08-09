@@ -24,6 +24,7 @@
 * O Coverage Threshold está configurado com o percentual de aceitação de *80%*. Portanto o jest retornará erro (error code > 0) caso o percentual de cobertura esteja abaixo. Isso irá "quebrar" o build, certifique-se que este critério de aceitação esteja satisfeito.
 * Para escrever um teste unitário crie um arquivo com o mesmo nome do modulo a ser testado e com a extensão *.test.ts*
 * O projeto possui a dependência *ts-auto-mock* que facilita a geração de stubs.
+* O projeto possui o **husky** configurado. Isso significa que o husky instalou um git hook na no seu ambiente local (quando executou o npm install) que vai rodar o linter, o formatter e os testes unitários antes de fazer o push pro repositório. Caso um desses steps retorne erro o push será cancelado.
 
 
 # Formatter e Linter
