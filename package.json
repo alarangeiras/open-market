@@ -8,6 +8,7 @@
     "build": "tsc",
     "test": "jest",
     "fmt": "prettier --write ./src/",
+    "fmt:check": "prettier --check ./src/",
     "dev": "ts-node-dev -r dotenv/config ./src/index.ts | pino-pretty",
     "import": "ts-node -r dotenv/config ./src/import-data.ts",
     "lint": "eslint ./src/**/*.ts --quiet --fix",

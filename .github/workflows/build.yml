@@ -1,0 +1,37 @@
+name: build
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Using Node.js version ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Installing Dependencies
+        run: npm ci
+
+      - name: Check Linting and Formatting
+        run: npm run lint:check && npm run fmt:check
+
+      - name: Run Tests
+        run: npm test
+
+      - name: Show coverage in comments
+        uses: romeovs/lcov-reporter-action@v0.2.17
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          lcov-file: ./coverage/lcov.info
