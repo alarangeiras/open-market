@@ -1,7 +1,11 @@
 import { Router } from 'express';
 import { makeExpressHandlerAdapter } from '../adapters/lib/make-express-handler-adapter';
 import { makePinoLoggerAdapter } from '../adapters/lib/make-pino-logger-adapter';
-import { makeAddNewMarketController, makeRemoveMarketController, makeUpdateMarketController } from '../controllers';
+import {
+  makeAddNewMarketController,
+  makeRemoveMarketController,
+  makeUpdateMarketController,
+} from '../controllers';
 
 const logger = makePinoLoggerAdapter();
 
@@ -18,6 +22,6 @@ export function makeMarketRouter(): Router {
   router.delete(
     '/markets/:id',
     makeExpressHandlerAdapter(makeRemoveMarketController(), logger)
-  );  
+  );
   return router;
 }

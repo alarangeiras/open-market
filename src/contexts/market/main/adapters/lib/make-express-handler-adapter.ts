@@ -12,7 +12,7 @@ export const makeExpressHandlerAdapter = (
       logger.info('calling the controller');
       const params: Http.Param = {};
       for (const requestParam in request.params) {
-        params[requestParam] = request.params[requestParam]
+        params[requestParam] = request.params[requestParam];
       }
       const controllerResponse = await controller.handle({
         params,
@@ -23,13 +23,13 @@ export const makeExpressHandlerAdapter = (
       logger.error(error);
 
       if (error.name === AppError.name) {
-        const {name, ...appError} = error as AppError;
+        const { name, ...appError } = error as AppError;
         return response.status(appError.status).json(appError);
       }
 
       return response.status(Http.StatusCode.InternalServerError).json({
         message: error.message,
-      });;
+      });
     }
   };
 };
