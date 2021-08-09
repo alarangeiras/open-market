@@ -9,7 +9,7 @@ export class UpdateMarketControlller implements Http.Controller {
   async handle(
     request: Http.Request<UpdateMarket.Request>
   ): Promise<Http.Response<void>> {
-    let id: number = parseInt(request.params['id']);
+    const id: number = parseInt(request.params['id']);
     if (!id) {
       throw new IdNotValidError();
     }

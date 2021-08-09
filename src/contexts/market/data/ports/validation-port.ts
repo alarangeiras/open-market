@@ -5,7 +5,7 @@ export namespace Validation {
   export interface Port {
     validate<T = any>(
       schema: Schema<T>,
-      validationObject: Object
+      validationObject: any
     ): Promise<any>;
   }
 }

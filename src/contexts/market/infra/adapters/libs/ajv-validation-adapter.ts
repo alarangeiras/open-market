@@ -8,7 +8,7 @@ export class AjvValidationAdapter implements Validation.Port {
 
   async validate<T>(
     schema: Validation.Schema<T>,
-    validationObject: Object
+    validationObject: any
   ): Promise<void> {
     const validateFunction = this._ajv.compile(schema);
     if (!validateFunction(validationObject) && validateFunction.errors) {

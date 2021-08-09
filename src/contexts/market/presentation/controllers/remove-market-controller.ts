@@ -8,7 +8,7 @@ export class RemoveMarketController implements Http.Controller {
   constructor(private _useCase: RemoveMarket.UseCase) {}
 
   async handle(request: Http.Request<any>): Promise<Http.Response<void>> {
-    let id: number = parseInt(request.params['id']);
+    const id: number = parseInt(request.params['id']);
     if (!id) {
       throw new IdNotValidError();
     }

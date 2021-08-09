@@ -11,3 +11,11 @@ services:
       - MYSQL_DATABASE=openmarket
       - MYSQL_USER=openmarketuser
       - MYSQL_PASSWORD=openmarketpassword
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8080:80
+    environment: 
+      - PMA_HOSTS=mysql
+      - PMA_USER=openmarketuser
+      - PMA_PASSWORD=openmarketpassword
