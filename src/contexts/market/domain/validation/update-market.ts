@@ -1,4 +1,4 @@
-export const addNewMarketRequestSchema: any = {
+export const updateMarketRequestSchema: any = {
   type: 'object',
   properties: {
     name: { type: 'string' },
@@ -6,5 +6,4 @@ export const addNewMarketRequestSchema: any = {
     district: { type: 'string' },
     region: { type: 'string' },
   },
-  required: ['name', 'neighborhood', 'district', 'region'],
 };

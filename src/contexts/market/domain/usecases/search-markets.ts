@@ -1,7 +1,12 @@
 import { Market } from '../model/market';
+import { searchMarketsRequestSchema } from '../validation/search-markets';
 
-export type SearchMarketsRequest = Partial<Omit<Market, 'id'>>;
+export namespace SearchMarkets {
+  export type Request = Partial<Omit<Market, 'id'>>;
+  export type Response = Partial<Omit<Market, 'id'>>;
+  export interface UseCase {
+    searchMarkets(market: Request): Promise<Response[]>;
+  }
 
-export interface SearchMarkets {
-  searchMarkets(market: SearchMarketsRequest): Promise<void>;
+  export const Schema = searchMarketsRequestSchema;
 }

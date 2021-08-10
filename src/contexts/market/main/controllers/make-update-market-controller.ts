@@ -1,7 +1,11 @@
 import { UpdateMarketControlller } from '../../presentation/controllers/update-market-controller';
-import { makeMarketMySQLRepository } from '../adapters/repositories/make-market-mysql-repository';
+import { makePinoLoggerAdapter } from '../adapters/lib/make-pino-logger-adapter';
+import { makeValidationAdapter } from '../adapters/lib/make-validation-adapter';
 import { makeUpdateMarketUseCase } from '../adapters/usecases/make-update-market';
 
 export const makeUpdateMarketController = () => {
-  return new UpdateMarketControlller(makeUpdateMarketUseCase());
+  return new UpdateMarketControlller(
+    makeUpdateMarketUseCase(),
+    makeValidationAdapter()
+  );
 };

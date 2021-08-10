@@ -15,8 +15,13 @@ export namespace Http {
     [key: string]: string;
   };
 
+  export type Query = {
+    [key: string]: string;
+  };
+
   export type Request<T = any> = {
     params?: Param;
+    query?: Query;
     headers?: Headers;
     body?: T;
   };

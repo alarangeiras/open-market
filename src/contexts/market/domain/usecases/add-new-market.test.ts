@@ -15,7 +15,7 @@ describe(__filename, () => {
 
     const marketMock: AddNewMarket.Request = {
       name: 'marketMockName',
-      neighbor: 'marketMockNeighbor',
+      neighborhood: 'marketMockNeighbor',
       district: 'marketMockDistrict',
       region: 'marketMockRegion',
     };

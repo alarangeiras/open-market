@@ -21,13 +21,13 @@ paths:
             type: object
             required:
               - name
-              - neighbor
+              - neighborhood
               - district
               - region
             properties:
               name:
                 type: string
-              neighbor:
+              neighborhood:
                 type: string
               district:
                 type: string
@@ -87,7 +87,7 @@ paths:
             properties:
               name:
                 type: string
-              neighbor:
+              neighborhood:
                 type: string
               district:
                 type: string

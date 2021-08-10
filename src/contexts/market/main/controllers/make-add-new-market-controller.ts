@@ -7,6 +7,6 @@ import { makeAddNewMarket } from '../adapters/usecases/make-add-new-maket';
 export function makeAddNewMarketController(): Http.Controller {
   return new AddNewMarketController(
     makeAddNewMarket(),
-    makeValidationAdapter(makePinoLoggerAdapter())
+    makeValidationAdapter()
   );
 }

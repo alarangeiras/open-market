@@ -4,6 +4,7 @@ import { makePinoLoggerAdapter } from '../adapters/lib/make-pino-logger-adapter'
 import {
   makeAddNewMarketController,
   makeRemoveMarketController,
+  makeSearchMarketsController,
   makeUpdateMarketController,
 } from '../controllers';
 
@@ -14,6 +15,10 @@ export function makeMarketRouter(): Router {
   router.post(
     '/markets',
     makeExpressHandlerAdapter(makeAddNewMarketController(), logger)
+  );
+  router.get(
+    '/markets',
+    makeExpressHandlerAdapter(makeSearchMarketsController(), logger)
   );
   router.put(
     '/markets/:id',

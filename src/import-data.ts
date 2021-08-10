@@ -26,13 +26,13 @@ const csvParse = (fileContent: string) => {
       const district = line[6];
       const region = line[9];
       const name = line[11];
-      const neighbor = line[15];
-      console.log(district, region, name, neighbor);
+      const neighborhood = line[15];
+      console.log(district, region, name, neighborhood);
       await marketRepository.add({
         district,
         region,
         name,
-        neighbor,
+        neighborhood,
       });
     }
     process.exit(0);

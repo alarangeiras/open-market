@@ -16,7 +16,7 @@ describe(__filename, () => {
     const request: Http.Request<AddNewMarket.Request> = {
       body: {
         name: 'marketMockName',
-        neighbor: 'marketMockNeighbor',
+        neighborhood: 'marketMockNeighbor',
         district: 'marketMockDistrict',
         region: 'marketMockRegion',
       },

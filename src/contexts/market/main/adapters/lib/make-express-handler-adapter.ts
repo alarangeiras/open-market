@@ -1,7 +1,11 @@
 import { Request, RequestHandler, Response } from 'express';
 import { LoggerPort } from '../../../data/ports/logger-port';
-import { AppError } from '../../../domain/errors/app-error';
 import { Http } from '../../../presentation/protocols/http-controller';
+import {
+  createErrorResponse,
+  extractPathParams,
+  extractQueryParams,
+} from './helpers/express-helpers';
 
 export const makeExpressHandlerAdapter = (
   controller: Http.Controller,
@@ -9,27 +13,20 @@ export const makeExpressHandlerAdapter = (
 ): RequestHandler => {
   return async (request: Request, response: Response) => {
     try {
-      logger.info('calling the controller');
-      const params: Http.Param = {};
-      for (const requestParam in request.params) {
-        params[requestParam] = request.params[requestParam];
-      }
+      logger.info(`calling the controller ${controller}`);
+      const params = extractPathParams(request);
+      const query = extractQueryParams(request);
       const controllerResponse = await controller.handle({
         params,
+        query,
         body: request.body,
       });
-      response.status(controllerResponse.status).json(controllerResponse.body);
+      return response
+        .status(controllerResponse.status)
+        .json(controllerResponse);
     } catch (error) {
       logger.error(error);
-
-      if (error.name === AppError.name) {
-        const { name, ...appError } = error as AppError;
-        return response.status(appError.status).json(appError);
-      }
-
-      return response.status(Http.StatusCode.InternalServerError).json({
-        message: error.message,
-      });
+      return createErrorResponse(error, response);
     }
   };
 };

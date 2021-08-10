@@ -1,7 +1,7 @@
 export type Market = {
   id: number;
   name: string;
-  neighbor: string;
+  neighborhood: string;
   district: string;
   region: string;
 };
