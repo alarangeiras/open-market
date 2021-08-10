@@ -18,21 +18,21 @@ describe(__filename, () => {
         name: 'nameTest',
         district: 'districtTest',
         neighborhood: 'neighborhoodTest',
-        region: 'regionTest'
-      } as SearchMarkets.Response
+        region: 'regionTest',
+      } as SearchMarkets.Response,
     ]);
     marketRepository.search = searchSpy;
     const useCase: SearchMarkets.UseCase = new MarketService(marketRepository);
 
     const request: SearchMarkets.Request = {
-      name: 'nameTest'
-    }
+      name: 'nameTest',
+    };
 
     try {
-      const result = await useCase.searchMarkets(request)
+      const result = await useCase.searchMarkets(request);
       expect(result).not.toBeNull();
       expect(result.length).toBeGreaterThan(0);
-    } catch(error) {
+    } catch (error) {
       assert.fail();
     }
   });
@@ -49,9 +49,9 @@ describe(__filename, () => {
     try {
       await useCase.searchMarkets(request);
     } catch (error) {
-      expect(error.name).toBe(AppError.name)
+      expect(error.name).toBe(AppError.name);
       return;
     }
     assert.fail();
-  });  
+  });
 });

@@ -34,7 +34,10 @@ describe(__filename, () => {
   test('controller must throw error when id is not a number', async () => {
     const useCase = createMock<UpdateMarket.UseCase>();
     const validator = createMock<Validation.Port>();
-    const controller: Http.Controller = new UpdateMarketControlller(useCase, validator);
+    const controller: Http.Controller = new UpdateMarketControlller(
+      useCase,
+      validator
+    );
     const request: Http.Request<UpdateMarket.Request> = {
       params: {
         id: 'teste',
