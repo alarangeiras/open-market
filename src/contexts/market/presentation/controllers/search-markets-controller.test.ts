@@ -4,6 +4,7 @@ import { Validation } from '../../data/ports/validation-port';
 import { SearchMarkets } from '../../domain/usecases';
 import { Http } from '../protocols/http-controller';
 import { SearchMarketsController } from './search-markets-controller';
+
 describe(__filename, () => {
   test('handle request', async () => {
     const usecase = createMock<SearchMarkets.UseCase>();
