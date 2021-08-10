@@ -1,5 +1,4 @@
 import assert from 'assert';
-import exp from 'constants';
 import { Pool } from 'mysql2/promise';
 import { createMock } from 'ts-auto-mock';
 import { LoggerPort } from '../../../data/ports/logger-port';

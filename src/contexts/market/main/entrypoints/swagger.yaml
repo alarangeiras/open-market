@@ -36,21 +36,63 @@ paths:
       responses:
         '201':
           description: Market Created
+          content:
+            application/json:
+              schema:
+                type: object
+                propeties:
+                  status:
+                    type: number
+                  body:
+                    type: string
     get:
       summary: Get markets by filter
       description:
       consumes:
         - application/json
+      parameters:
+        - in: query
+          name: market
+          description: Market to be created
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              neighborhood:
+                type: string
+              district:
+                type: string
+              region:
+                type: string
       responses:
         '200':
-          description: A JSON array of user names
+          description: List of Market Results
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: string
-
+                type: object
+                propeties:
+                  status:
+                    type: number
+                    example: 200
+                  body:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: 'Market x'
+                        neighborhood:
+                          type: string
+                          example: 'Centro'
+                        district:
+                          type: string
+                          example: 'Niteroi'
+                        region:
+                          type: string
+                          example: 'Rio de Janeiro'
   /markets/{id}:
     delete:
       summary: Delete a Market
@@ -67,6 +109,15 @@ paths:
       responses:
         '200':
           description: Market Deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                propeties:
+                  status:
+                    type: number
+                  body:
+                    type: string
     put:
       summary: Update a market
       description:
@@ -96,3 +147,12 @@ paths:
       responses:
         '200':
           description: Market Updated
+          content:
+            application/json:
+              schema:
+                type: object
+                propeties:
+                  status:
+                    type: number
+                  body:
+                    type: string
